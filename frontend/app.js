@@ -30,10 +30,12 @@ function setStatus(mensaje, tipo = "ok") {
 }
 
 async function cargarProductos() {
+  console.log("Cargando")
   try {
     const res = await fetch(API_BASE);
     if (!res.ok) throw new Error("Error al cargar productos");
     const data = await res.json();
+    console.log(data)
     renderProductos(data);
     setStatus("Productos cargados correctamente.", "ok");
   } catch (err) {

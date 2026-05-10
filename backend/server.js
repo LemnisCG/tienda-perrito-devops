@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const {
-  DB_HOST = "10.0.2.134", // acá colocar la IP Privada EC2 DB
+  DB_HOST = "10.0.130.129", // acá colocar la IP Privada EC2 DB
   DB_USER = "root",
   DB_PASSWORD = "admin123",
   DB_NAME = "tienda_perritos",
@@ -32,7 +32,7 @@ async function initDb() {
       connectionLimit: 10,
       queueLimit: 0,
     });
-    console.log("Pool de conexiones MySQL inicializado.");
+    console.log("Pool de conexiones en MySQL inicializado ya.");
   } catch (err) {
     console.error("Error al inicializar pool de MySQL:", err);
   }
