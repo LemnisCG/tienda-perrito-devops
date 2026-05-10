@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./db
+    container_name: innovatech-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: tienda_perritos
+      MYSQL_USER: alumno
+      MYSQL_PASSWORD: alumno123
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - innovatech-network
+
+  backend:
+    build: ./backend
+    container_name: innovatech-backend
+    restart: always
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=admin123
+      - DB_NAME=tienda_perritos
+      - DB_PORT=3306
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    networks:
+      - innovatech-network
+
+  frontend:
+    build: ./frontend
+    container_name: innovatech-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - innovatech-network
+
+volumes:
+  dbdata:
+
+networks:
+  innovatech-network:
+    driver: bridge
