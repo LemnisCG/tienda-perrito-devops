@@ -21,4 +21,4 @@ Los servicios estarán disponibles en:
 El despliegue está completamente automatizado mediante GitHub Actions. Al realizar un \`push\` hacia la rama \`deploy\`, el pipeline:
 1. Construye las imágenes Docker.
 2. Sube las imágenes a Amazon ECR.
-3. Actualiza y ejecuta los contenedores en las instancias EC2 correspondientes mediante AWS Systems Manager (SSM).
+3. Actualiza y ejecuta los contenedores en las instancias EC2 correspondientes mediante AWS Systems Manager (SSM) asd.
