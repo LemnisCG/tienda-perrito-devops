@@ -40,7 +40,7 @@ async function cargarProductos() {
     setStatus("Productos cargados correctamente.", "ok");
   } catch (err) {
     console.error(err);
-    setStatus("No se pudieron cargar los productos. ¿Está el backend levantado?", "error");
+    setStatus("No se pudierons cargar los productos. ¿Estás el backend levantados?", "error");
   }
 }
 

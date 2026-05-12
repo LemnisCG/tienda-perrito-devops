@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const {
-  DB_HOST = "10.0.130.129", // acá colocar la IP Privada EC2 DB
+  DB_HOST = "10.0.130.129", // acá colocar la IP Privada EC2 D2B
   DB_USER = "root",
   DB_PASSWORD = "admin123",
   DB_NAME = "tienda_perritos",
@@ -50,7 +50,7 @@ app.get("/api/productos", async (req, res) => {
     const [rows] = await pool.query("SELECT id, nombre, descripcion, precio, stock FROM productos ORDER BY id DESC");
     res.json(rows);
   } catch (err) {
-    handleError(res, err, "No se pudieron obtener los productos.");
+    handleError(res, err, "No se pudieron obtener los productosssss.");
   }
 });
 
